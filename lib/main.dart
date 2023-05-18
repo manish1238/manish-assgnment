@@ -6,9 +6,6 @@ import 'app/screens/authentication/login.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  // final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
-  // final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
-  //     FlutterLocalNotificationsPlugin();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
