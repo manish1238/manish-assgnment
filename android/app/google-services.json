@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007733277291",
+    "project_id": "vivatech-ed428",
+    "storage_bucket": "vivatech-ed428.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007733277291:android:509d5e4ab18e7f946fe72e",
+        "android_client_info": {
+          "package_name": "com.example.vivatech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007733277291-kbhmcqejbkh10d9sl4bpevvmq1l3b5g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEA50dX3DkMBoZBPZrpnMJom1aagMEAoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007733277291-kbhmcqejbkh10d9sl4bpevvmq1l3b5g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
