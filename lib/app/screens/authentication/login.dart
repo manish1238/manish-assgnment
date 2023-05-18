@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vivatech/app/screens/registration/register.dart';
 
-import '/app/screens/registration/register.dart';
 import '../../utils/config.dart';
+import '../dashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -68,11 +69,21 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(border: Border.all(width: 1)),
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your User ID';
+                            }
+                            return null;
+                          },
                           maxLines: 1,
                           style: const TextStyle(color: Colors.black),
                           controller: userController,
                           decoration: const InputDecoration(
+                            errorStyle: TextStyle(
+                              // Set the error text color
+                              color: Colors.black,
+                            ),
                             border: InputBorder.none,
                             filled: true,
                             fillColor: Colors.white,
@@ -95,12 +106,22 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(border: Border.all(width: 1)),
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
                           controller: passwordController,
                           obscureText: obsecureText,
                           maxLines: 1,
                           style: const TextStyle(color: Colors.black),
                           decoration: InputDecoration(
+                            errorStyle: const TextStyle(
+                              // Set the error text color
+                              color: Colors.black,
+                            ),
                             suffix: IconButton(
                               onPressed: () => setState(() {
                                 obsecureText = !obsecureText;
@@ -163,8 +184,10 @@ class _LoginPageState extends State<LoginPage> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () => buildSnackBar(
-                        color: Colors.blue, title: 'Wrong Credentials'),
+                    onPressed: () => Get.to(
+                      const Registration(),
+                      transition: Transition.rightToLeft,
+                    ),
                     child: const Text(
                       'Register your self',
                       style: TextStyle(
@@ -273,12 +296,12 @@ class _LoginPageState extends State<LoginPage> {
       ));
 
   void validate() async {
-    Get.to(
-      const Registration(),
-      transition: Transition.rightToLeft,
-    );
     if (formKey.currentState!.validate()) {
       isLoading = false;
+      Get.to(
+        const Dashboard(),
+        transition: Transition.rightToLeft,
+      );
     } else {
       print('error in login validation');
       isLoading = false;
